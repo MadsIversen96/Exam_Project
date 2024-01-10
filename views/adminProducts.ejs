@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head.ejs') %>
+    <script src="../js/commonProduct.js"></script>
+    <script src="../js/commonGeneral.js"></script>
+</head>
+<body>
+  <%- include('./partials/header.ejs') %>
+  <%- include('./partials/navbar.ejs') %>
+  <header class="header"><h2>Products</h2></header>
+  <div class="search-container">
+    <form>
+      <input type="text" name="search" id="searchInput">
+      <input type="submit" value="Search">
+    </form>
+  </div>
+  
+
+  <div class="dropdown">
+    <label for="category">Category:</label>
+    <select id="category" name="category">
+      <option value="All"> All </option>
+      <% categories.forEach(category => { %>
+        <option value="<%= category.name %>"><%= category.name %></option>
+      <% }); %>
+    </select>
+  </div>
+
+  <div class="dropdown">
+    <label for="brand">Brand:</label>
+    <select id="brand" name="brand">
+      <option value="All"> All </option>
+      <% brands.forEach(brand => { %>
+        <option value="<%= brand.name %>"><%= brand.name %></option>
+      <% }); %>
+    </select>
+  </div>
+
+  <div class="Addbutton">
+    <button onclick='showAddModal()'>Add</button>
+  </div>
+
+  <table id="table">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Brand</th>
+        <th>Category</th>
+        <th>Image URL</th>
+        <th>Image</th>
+        <th>Is Deleted</th>
+        <th>Date added</th>
+        <th>Options</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% products.forEach(product => { %>
+        <tr>
+          <td><%= product.id %></td>
+          <td><%= product.name %></td>
+          <td><%= product.description %></td>
+          <td><%= product.quantity %></td>
+          <td><%= product.price %></td>
+          <td><%= product.brandName %></td>
+          <td><%= product.categoryName %></td>
+          <td><%= product.imgurl %></td>
+          <td><img class="product-images" src="<%= product.imgurl %>"></td>
+          <td><div class="checkbox-wrapper-2">
+            <input type="checkbox" class="sc-gJwTLC ikxBAC" <% if (product.isDeleted) { %>checked<% } %> onchange="toggleIsDeleted(<%= product.id %>, this)" >
+          </div></td>
+          <td><%= product.createdAt %></td>
+          <td class="options">
+            <button onclick='showEditModal(<%- JSON.stringify(product) %>)'>Edit</button>
+            <button onclick="deleteProduct(<%= product.id %>)">Delete</button>
+          </td>
+        </tr>
+        <% }); %>
+    </tbody>
+  </table>
+<!-- Modal -->
+<%- include('./partials/productModals.ejs') %>
+
+<script>
+</script>
+</body>
+</html>

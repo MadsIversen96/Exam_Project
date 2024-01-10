@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head.ejs') %>
+    <script src="../js/commonOrder.js"></script>
+    <script src="../js/commonGeneral.js"></script>
+</head>
+<body>
+  <%- include('./partials/header.ejs') %>
+  <%- include('./partials/navbar.ejs') %>
+  <header class="header"><h2>Orders</h2></header>
+
+  <table>
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>Order Number</th>
+        <th>Created</th>
+        <th>Updated</th>
+        <th>User Id</th>
+        <th>User Email</th>
+        <th>Membership</th>
+        <th>Order Status</th>
+        <th>Options</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% orders.forEach(order => { %>
+        <tr>
+          <td><%= order.orderId %></td>
+          <td><%= order.orderNumber %></td>
+          <td><%= order.created %></td>
+          <td><%= order.updated %></td>
+          <td><%= order.user.userId %></td>
+          <td><%= order.user.email %></td>
+          <td><%= order.membership %></td>
+          <td><%= order.status %></td>
+          <td class="options">
+            <button onclick="editOrderModal(<%= JSON.stringify(order) %>)">Edit</button>
+          </td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+
+ <!-- Modal -->
+<%- include('./partials/orderModals.ejs') %>
+</body>
+</html>

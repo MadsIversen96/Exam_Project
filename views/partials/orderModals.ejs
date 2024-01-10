@@ -1,0 +1,29 @@
+<!-- EDIT ORDER MODAL-->
+<div id="editOrderModal" class="modal">
+    <div class="modal-content">
+      
+        <div class="input-group">
+          <label for="id" class="label">Id:</label>
+          <input type="text" id="editOrderInput0" name="editOrderInput0" readonly>
+      </div>
+  
+        <div class="input-group">
+            <label for="email" class="label">Email:</label>
+            <input type="text" id="editOrderInput1" name="editOrderInput1" readonly>
+        </div>
+
+        <div class="input-group">
+            <label for="status" class="label">Status:</label>
+        <select id="editOrderInput2" name="editOrderInput2">
+          <% statuses.forEach(status => { %>
+            <option value="<%= status.name %>"><%= status.name %></option>
+          <% }); %>
+        </select>
+        </div>
+  
+        <div class="button-group">
+          <button onclick="editOrder()">Save Changes</button>
+          <button onclick="closeModal('editOrderModal')">Cancel</button>
+        </div>
+    </div>
+  </div>

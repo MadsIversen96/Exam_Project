@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head.ejs') %>
+    <script src="../js/commonBrand.js"></script>
+    <script src="../js/commonGeneral.js"></script>
+</head>
+  
+<body>
+  <%- include('./partials/header.ejs') %>
+  <%- include('./partials/navbar.ejs') %>
+  <header class="header"><h2>Brands</h2></header>
+  <div class="Addbutton">
+    <button onclick="addBrandModal()">Add</button>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>Name</th>
+        <th>Options</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% brands.forEach(brand => { %>
+        <tr>
+          <td><%= brand.id %></td>
+          <td><%= brand.name %></td>
+          <td class="options">
+            <button onclick='editBrandModal(<%- JSON.stringify(brand) %>)'>Edit</button>
+            <button onclick="deleteBrand(<%= brand.id %>)">Delete</button>
+          </td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+  <%- include('./partials/brandModals.ejs') %>
+</body>
+</html>

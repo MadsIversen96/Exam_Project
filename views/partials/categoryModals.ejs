@@ -1,0 +1,37 @@
+<!-- EDIT CATEGORY MODAL-->
+<div id="editCategoryModal" class="modal">
+    <div class="modal-content">
+      
+        <div class="input-group">
+          <label for="id" class="label">Id:</label>
+          <input type="text" id="editCategoryInput0" name="editCategoryInput0" readonly>
+      </div>
+  
+        <div class="input-group">
+            <label for="name" class="label">Name:</label>
+            <input type="text" id="editCategoryInput1" name="editCategoryInput1">
+        </div>
+  
+        <div class="button-group">
+          <button onclick="editCategory()">Save Changes</button>
+          <button onclick="closeModal('editCategoryModal')">Cancel</button>
+        </div>
+    </div>
+  </div>
+  
+  <!-- ADD CATEGORY MODAL-->
+  <div id="addCategoryModal" class="modal">
+    <div class="modal-content">
+        
+        <div class="input-group">
+            <label for="name" class="label">Name:</label>
+            <input type="text" id="addCategoryInput1" name="addCategoryInput1">
+            
+        </div>
+  
+        <div class="button-group">
+          <button onclick="addCategory()">Save Changes</button>
+          <button onclick="closeModal('addCategoryModal')">Cancel</button>
+        </div>
+    </div>
+  </div>

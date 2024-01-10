@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head.ejs') %>
+  <script src="../js/commonUser.js"></script>
+  <script src="../js/commonGeneral.js"></script>
+<body>
+  <%- include('./partials/header.ejs') %>
+  <%- include('./partials/navbar.ejs') %>
+  <header class="header"><h2>users</h2></header>
+  <table>
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Telephone</th>
+        <th>Total Units Purchased</th>
+        <th>Membership</th>
+        <th>Role</th>
+        <th>Options</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% users.forEach(user => { %>
+        <tr>
+          <td><%= user.id %></td>
+          <td><%= user.firstname %></td>
+          <td><%= user.lastname %></td>
+          <td><%= user.username %></td>
+          <td><%= user.email %></td>
+          <td><%= user.address %></td>
+          <td><%= user.telephone %></td>
+          <td><%= user.totalProductsPurchased %></td>
+          <td><%= user.membership.name %></td>
+          <td><%= user.role.name %></td>
+          <td class="options">
+            <button onclick='editUserModal(<%- JSON.stringify(user) %>)'>Edit</button>
+          </td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+  <!-- Modal -->
+<%- include('./partials/userModals.ejs') %>
+</body>
+</html>

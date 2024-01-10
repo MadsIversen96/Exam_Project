@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('./partials/head.ejs') %>
+  <script src="../js/commonCategory.js"></script>
+  <script src="../js/commonGeneral.js"></script>
+</head>
+<body>
+  <%- include('./partials/header.ejs') %>
+  <%- include('./partials/navbar.ejs') %>
+  <header class="header"><h2>Categories</h2></header>
+  <div class="Addbutton">
+    <button onclick="addCategoryModal()">Add</button>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>Name</th>
+        <th>Options</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% categories.forEach(category => { %>
+        <tr>
+          <td><%= category.id %></td>
+          <td><%= category.name %></td>
+          <td class="options">
+            <button onclick='editCategoryModal(<%= JSON.stringify(category) %>)'>Edit</button>
+            <button onclick="deleteCategory(<%= category.id %>)">Delete</button>
+          </td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+  <%- include('./partials/categoryModals.ejs') %>
+  
+</body>
+</html>

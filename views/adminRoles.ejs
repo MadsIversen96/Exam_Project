@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head.ejs') %>
+<body>
+  <%- include('./partials/header.ejs') %>
+  <%- include('./partials/navbar.ejs') %>
+  <header class="header"><h2>Roles</h2></header>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% roles.forEach(roles => { %>
+        <tr>
+          <td><%= roles.id %></td>
+          <td><%= roles.name %></td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</body>
+</html>

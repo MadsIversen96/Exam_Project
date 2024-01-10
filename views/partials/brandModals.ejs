@@ -1,0 +1,36 @@
+<!-- EDIT BRAND MODAL-->
+<div id="editBrandModal" class="modal">
+    <div class="modal-content">
+      
+        <div class="input-group">
+          <label for="id" class="label">Id:</label>
+          <input type="text" id="editBrandInput0" name="editBrandInput0" readonly>
+      </div>
+  
+        <div class="input-group">
+            <label for="name" class="label">Name:</label>
+            <input type="text" id="editBrandInput1" name="editBrandInput1">
+        </div>
+  
+        <div class="button-group">
+          <button onclick="editBrand()">Save Changes</button>
+          <button onclick="closeModal('editBrandModal')">Cancel</button>
+        </div>
+    </div>
+  </div>
+  
+  <!-- ADD BRAND MODAL-->
+  <div id="addBrandModal" class="modal">
+    <div class="modal-content">
+        
+        <div class="input-group">
+            <label for="name" class="label">Name:</label>
+            <input type="text" id="addBrandInput1" name="addBrandInput1">
+        </div>
+  
+        <div class="button-group">
+          <button onclick="addBrand()">Save Changes</button>
+          <button onclick="closeModal('addBrandModal')">Cancel</button>
+        </div>
+    </div>
+  </div>

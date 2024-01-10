@@ -1,0 +1,113 @@
+<!-- EDIT MODAL-->
+<div id="editProductModal" class="modal">
+  <div class="modal-content">
+    
+      <div class="input-group">
+        <label for="id" class="label">Id:</label>
+        <input type="text" id="input0" name="input0" readonly>
+    </div>
+
+      <div class="input-group">
+          <label for="name" class="label">Name:</label>
+          <input type="text" id="input1" name="input1">
+      </div>
+
+      <div class="input-group">
+          <label for="description" class="label">Description:</label>
+          <input type="text" id="input2" name="input2">
+      </div>
+
+      <div class="input-group">
+          <label for="quantity" class="label">Quantity:</label>
+          <input type="text" id="input3" name="input3">
+      </div>
+
+      <div class="input-group">
+          <label for="price" class="label">Price:</label>
+          <input type="text" id="input4" name="input4">
+      </div>
+
+      <div class="input-group">
+        <label for="brand" class="label">Brand:</label>
+    <select id="input5" name="input5">
+      <% brands.forEach(brand => { %>
+        <option value="<%= brand.name %>"><%= brand.name %></option>
+      <% }); %>
+    </select>
+    </div>
+
+    <div class="input-group">
+      <label for="category" class="label">Category:</label>
+    <select id="input6" name="input6">
+      <% categories.forEach(category => { %>
+        <option value="<%= category.name %>"><%= category.name %></option>
+      <% }); %>
+    </select>
+    </div>
+
+    <div class="input-group">
+          <label for="imgurl" class="label">Image URL:</label>
+          <input type="text" id="input7" name="input7">
+    </div>
+
+      <div class="button-group">
+        <button onclick="saveUpdates()">Save Changes</button>
+        <button onclick="closeModal('editProductModal')">Cancel</button>
+      </div>
+  </div>
+</div>
+
+
+<!-- ADD MODAL-->
+<div id="addProductModal" class="modal">
+  <div class="modal-content">
+      
+      <div class="input-group">
+          <label for="name" class="label">Name:</label>
+          <input type="text" id="addInput1" name="addInput1">
+      </div>
+
+      <div class="input-group">
+          <label for="description" class="label">Description:</label>
+          <input type="text" id="addInput2" name="addInput2">
+      </div>
+
+      <div class="input-group">
+          <label for="quantity" class="label">Quantity:</label>
+          <input type="text" id="addInput3" name="addInput3">
+      </div>
+
+      <div class="input-group">
+          <label for="price" class="label">Price:</label>
+          <input type="text" id="addInput4" name="addInput4">
+      </div>
+
+      <div class="input-group">
+        <label for="brand" class="label">Brand:</label>
+    <select id="addInput5" name="addInput5">
+      <% brands.forEach(brand => { %>
+        <option value="<%= brand.name %>"><%= brand.name %></option>
+      <% }); %>
+    </select>
+    </div>
+
+    <div class="input-group">
+      <label for="category" class="label">Category:</label>
+    <select id="addInput6" name="addInput6">
+      <% categories.forEach(category => { %>
+        <option value="<%= category.name %>"><%= category.name %></option>
+      <% }); %>
+    </select>
+  </div>
+
+      <div class="input-group">
+          <label for="imgurl" class="label">Image URL:</label>
+          <input type="text" id="addInput7" name="addInput7">
+      </div>
+
+      <div class="button-group">
+        <button onclick="addProduct()">Save Changes</button>
+        <button onclick="closeModal('addProductModal')">Cancel</button>
+      </div>
+  </div>
+</div>
